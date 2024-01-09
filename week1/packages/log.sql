@@ -21,3 +21,13 @@ select * from addresses where id = 348;
 
 -- *** The Forgotten Gift ***
 
+-- find the packages from 109 Tileston Street
+select * from packages where from_address_id = (
+    select id from addresses where address = "109 Tileston Street"
+);
+
+-- find the scans for the package of the forgotten gift (id = 9523)
+select * from scans where package_id = 9523;
+
+-- find the driver that has the package (id= 17)
+select * from drivers where id = 17;
