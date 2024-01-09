@@ -12,5 +12,12 @@ select * from addresses where id = 854;
 
 -- *** The Devious Delivery ***
 
+-- find the id of packages with no from address
+select * from packages where from_address_id is null;
+-- find the scans for the package of the devious package (id = 5098)
+select * from scans where package_id = 5098;
+-- find the address that the package was dropped (id= 348)
+select * from addresses where id = 348;
+
 -- *** The Forgotten Gift ***
 
