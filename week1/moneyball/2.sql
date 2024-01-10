@@ -2,3 +2,12 @@
 
 -- Sort by year in descending order.
 -- Your query should return a table with two columns, one for year and one for salary.
+
+SELECT salary, year FROM salaries 
+WHERE player_id = (
+    SELECT id FROM players
+    WHERE last_name = 'Ripken'
+    AND first_name = 'Cal'
+)
+ORDER BY year DESC;
+

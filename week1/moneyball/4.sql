@@ -4,3 +4,8 @@
 -- If two players have the same salary, sort alphabetically by first name and then by last name.
 -- If two players have the same first and last name, sort by player ID.
 -- Your query should return three columns, one for players’ first names, one for their last names, and one for their salaries.
+
+SELECT first_name, last_name, salary FROM players
+JOIN salaries ON players.id = salaries.player_id
+ORDER BY salary , first_name, last_name, players.id
+LIMIT 50;
