@@ -2,4 +2,5 @@
 
 -- Note the per_pupil_expenditure column in the expenditures table contains the average amount, per pupil, each district spent last year. You’ve been asked to find the average of this set of averages, weighting all districts equally regardless of their size.
 
-SELECT AVG(per_pupil_expenditure) AS 'Average District Per-Pupil Expenditure' FROM expenditures GROUP BY district_id;
+SELECT AVG(per_pupil_expenditure) AS 'Average District Per-Pupil Expenditure' 
+FROM expenditures;
