@@ -8,7 +8,8 @@
 -- You may assume, for simplicity, that a player will only have one salary and one performance in 2001.
 
 
-SELECT players.first_name, players.last_name, salaries.salary / performances.H  AS 'dollars per hit' from players
+SELECT players.first_name, players.last_name, salaries.salary / performances.H  AS 'dollars per hit' 
+FROM players
 JOIN performances ON players.id = performances.player_id
 JOIN salaries ON players.id = salaries.player_id
 WHERE salaries.year = '2001' AND performances.year = '2001' AND performances.H != '0'

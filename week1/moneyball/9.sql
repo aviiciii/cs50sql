@@ -5,7 +5,8 @@
 -- Your query should return a table with two columns, one for the teams’ names and one for their average salary.
 
 
-SELECT teams.name,  ROUND(AVG(salaries.salary), 2) as 'average salary' FROM salaries
+SELECT teams.name,  ROUND(AVG(salaries.salary), 2) as 'average salary' 
+FROM salaries
 JOIN teams ON salaries.team_id = teams.id
 WHERE salaries.year = 2001
 GROUP BY team_id
