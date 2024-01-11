@@ -6,3 +6,8 @@
 -- Sort the table by the “dollars per hit” column, least to most expensive. If two players have the same “dollars per hit”, order by first name, followed by last name, in alphabetical order.
 -- As in 10.sql, ensure that the salary’s year and the performance’s year match.
 -- You may assume, for simplicity, that a player will only have one salary and one performance in 2001.
+
+
+SELECT players.first_name, players.last_name, salaries.salary, performances.HR, performances.year from players
+JOIN performances ON players.id = performances.player_id
+JOIN salaries ON performances.year = salaries.year AND performances.player_id = salaries.player_id;

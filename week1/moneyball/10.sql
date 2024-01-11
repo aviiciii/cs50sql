@@ -5,3 +5,9 @@
 -- All player’s salaries
 -- All player’s home runs
 -- The year in which the player was paid that salary and hit those home runs
+
+SELECT players.first_name, players.last_name, salaries.salary, performances.HR, performances.year from players
+JOIN performances ON players.id = performances.player_id
+JOIN salaries ON performances.year = salaries.year AND performances.player_id = salaries.player_id
+ORDER BY players.id, performances.year;
+
