@@ -5,3 +5,23 @@
 -- You may assume, for simplicity, that a player will only have one salary and one performance in 2001.
 -- Order your results by player ID, least to greatest (or alphabetically by last name, as both are the same in this case!).
 -- Keep in mind the lessons you’ve learned in 10.sql and 11.sql!
+
+
+SELECT first_name, last_name FROM players
+WHERE id IN (
+    SELECT players.id FROM players
+    JOIN performances ON players.id = performances.player_id
+    JOIN salaries ON players.id = salaries.player_id
+    WHERE salaries.year = '2001' AND performances.year = '2001' AND performances.RBI != '0'
+    ORDER BY salaries.salary / performances.RBI
+    LIMIT 10
+)
+AND id IN (
+    SELECT players.id FROM players
+    JOIN performances ON players.id = performances.player_id
+    JOIN salaries ON players.id = salaries.player_id
+    WHERE salaries.year = '2001' AND performances.year = '2001' AND performances.H != '0'
+    ORDER BY salaries.salary / performances.H
+    LIMIT 10
+)
+ORDER BY id;
